@@ -26,3 +26,7 @@ Route::get('/shelf/{id}/comics', 'ComicController@index')->name('comics');
 
 Route::get('/shelf/{id}/comics/add', 'ComicController@add');
 Route::post('/shelf/{id}/comics/add', 'ComicController@create');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
