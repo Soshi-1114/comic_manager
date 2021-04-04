@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
                     Comic Manager
                 </a>
@@ -35,7 +35,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/home">My Page<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/shelf">My Shelf<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
