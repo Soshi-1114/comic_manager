@@ -10,6 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/logout', 'HomeController@index')->name('logout');
+
 
 Route::get('/shelf', 'ShelfController@index');
 
@@ -26,7 +31,3 @@ Route::get('/shelf/{id}/comics', 'ComicController@index')->name('comics');
 
 Route::get('/shelf/{id}/comics/add', 'ComicController@add');
 Route::post('/shelf/{id}/comics/add', 'ComicController@create');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -11,11 +11,11 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            メニュー
+            {{-- {{ Auth::user()->name }} <span class="caret"></span> --}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">マイページ</a>
-            <a class="dropdown-item" href="/shelf/editShelves">本棚編集</a>
+            <a class="dropdown-item" href="/shelf/editShelves">本棚一覧</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
