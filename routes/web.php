@@ -11,18 +11,18 @@
 |
 */
 
-Route::get('/', 'ShelfController@index')->name('home');
+Route::get('/shelf', 'ShelfController@index');
 
-Route::get('/editShelves', 'ShelfController@edit');
-Route::post('/editShelves', 'ShelfController@update');
+Route::get('/shelf/editShelves', 'ShelfController@edit');
+Route::post('/shelf/editShelves', 'ShelfController@update');
 
-Route::get('/editShelves/add', 'ShelfController@add');
-Route::post('/editShelves/add', 'ShelfController@create');
+Route::get('/shelf/editShelves/add', 'ShelfController@add');
+Route::post('/shelf/editShelves/add', 'ShelfController@create');
 
-Route::get('/editShelves/delete/{id}', 'ShelfController@del');
-Route::post('/editShelves/delete', 'ShelfController@remove');
+Route::get('/shelf/editShelves/delete/{id}', 'ShelfController@del');
+Route::post('/shelf/editShelves/delete', 'ShelfController@remove');
 
-Route::get('/shelf/{id}/comics', 'ComicController@index');
+Route::get('/shelf/{id}/comics', 'ComicController@index')->name('comics');
 
 Route::get('/shelf/{id}/comics/add', 'ComicController@add');
 Route::post('/shelf/{id}/comics/add', 'ComicController@create');

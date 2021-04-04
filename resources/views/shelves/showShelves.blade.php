@@ -16,7 +16,7 @@
                         </ul>
                     </div>
                     <div class="card-footer">>
-                        <a href="/editShelves" class="btn btn-primary btn-block">
+                        <a href="/shelf/editShelves" class="btn btn-primary btn-block">
                             本棚を編集する
                         </a>
                     </div>

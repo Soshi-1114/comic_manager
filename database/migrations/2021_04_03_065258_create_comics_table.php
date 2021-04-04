@@ -14,8 +14,8 @@ class CreateComicsTable extends Migration
     public function up()
     {
         Schema::create('comics', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('shelf_id')->unsigned();
+            $table->bigIncrements('id');
+            $table->bigInteger('shelf_id')->unsigned();
             $table->string('title', 100);
             $table->date('release_date');
             $table->integer('purchase_status')->length(2)->default(1);

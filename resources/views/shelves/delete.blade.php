@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <h5 class="card-title">本棚：：{{ $shelf->title }}を削除しますか？</h5>
                         <p class="card-text"></p>
-                        <form action="/editShelves/delete" method="post">
+                        <form action="/shelf/editShelves/delete" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{ $shelf->id }}">
                             <input type="submit" class="btn btn-danger" value="削除">

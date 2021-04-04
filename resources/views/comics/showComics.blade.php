@@ -30,7 +30,7 @@
                     </tbody>
                     </table>
                     <div class="card-footer">>
-                        <a href="/editShelves/add" class="btn btn-primary btn-block">
+                        <a href="/shelf/{{$current_shelf_id}}/comics/add" class="btn btn-primary btn-block">
                             comicを追加する
                         </a>
                     </div>

@@ -7,7 +7,7 @@
                 <nav class="card">
                     <div class="card-header text-center">本棚のタイトル</div>
                         <div class="card-body">
-                            <form action="/editShelves/add" method="post">
+                            <form action="/shelf/editShelves/add" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <input type="text" name="title" class="form-control" placeholder="Enter title">
