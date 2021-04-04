@@ -52,6 +52,6 @@ class ComicController extends Controller
             'purchase_status' => $request->purchase_status,
         ];
         DB::table('comics')->insert($data);
-        return redirect('/');
+        return redirect()->route('comics', ['id' => $request->shelf_id]);
     }
 }

@@ -13,10 +13,12 @@ class ShelvesTableSeeder extends Seeder
      */
     public function run()
     {
-        $titles = ['漫画', '技術書', 'お気に入り'];
+        $user = DB::table('users')->first();
+        $titles = ['バトル', '恋愛', '異世界系'];
         foreach ($titles as $title) {
             DB::table('shelves')->insert([
                 'title' => $title,
+                'user_id' => $user->id,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);

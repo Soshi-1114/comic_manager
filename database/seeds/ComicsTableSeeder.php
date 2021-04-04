@@ -17,7 +17,7 @@ class ComicsTableSeeder extends Seeder
         foreach (range(1, 3) as $num) {
             DB::table('comics')->insert([
                 'shelf_id' => 1,
-                'title' => "サンプルshlef {$num}",
+                'title' => "comic {$num}",
                 'release_date' => Carbon::now()->addDay($num),
                 'purchase_status' => 1,
                 'created_at' => Carbon::now(),

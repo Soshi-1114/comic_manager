@@ -55,7 +55,7 @@ class ShelfController extends Controller
             'title' => $request->title,
         ];
         DB::table('shelves')->insert($data);
-        return redirect('/editShelves');
+        return redirect('/shelf/editShelves');
     }
 
     public function del(int $id)
@@ -69,6 +69,6 @@ class ShelfController extends Controller
     {
         DB::table('shelves')
             ->where('id', $request->id)->delete();
-        return redirect('/editShelves');
+        return redirect('/shelf/editShelves');
     }
 }

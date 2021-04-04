@@ -1,4 +1,4 @@
-@extends('shelves.index')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -11,7 +11,7 @@
                             @foreach($shelves as $shelf)
                                 <li class="list-group-item">
                                     {{ $shelf->title }}
-                                    <form action="/editShelves/delete/{{$shelf->id}}" method="get" class="text-right">
+                                    <form action="/shelf/editShelves/delete/{{$shelf->id}}" method="get" class="text-right">
                                         @csrf
                                         <input type="submit" class="btn btn-danger" value="削除">
                                     </form>
@@ -21,7 +21,7 @@
                         </ul>
                     </div>
                     <div class="card-footer">>
-                        <a href="/editShelves/add" class="btn btn-primary btn-block">
+                        <a href="/shelf/editShelves/add" class="btn btn-primary btn-block">
                             本棚を追加する
                         </a>
                     </div>
