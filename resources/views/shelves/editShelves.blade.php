@@ -7,18 +7,27 @@
                 <nav class="card">
                     <div class="card-header text-center">本棚一覧</div>
                     <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            @foreach($shelves as $shelf)
-                                <li class="list-group-item">
-                                    {{ $shelf->title }}
-                                    <form action="/shelf/editShelves/delete/{{$shelf->id}}" method="get" class="text-right">
-                                        @csrf
-                                        <input type="submit" class="btn btn-danger" value="削除">
-                                    </form>
-                                    {{-- <a href="/editShelves/delete" class="btn btn-danger text-right" value={{ $shelf->id }}>削除</a> --}}
-                                </li>
-                            @endforeach
-                        </ul>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>タイトル</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($shelves as $shelf)
+                                <tr>
+                                    <td>{{ $shelf->title }}</td>
+                                    <td>
+                                        <form action="/shelf/editShelves/delete/{{$shelf->id}}" method="get" class="text-right">
+                                            @csrf
+                                            <input type="submit" class="btn btn-danger" value="削除">
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                     <div class="card-footer">>
                         <a href="/shelf/editShelves/add" class="btn btn-primary btn-block">
