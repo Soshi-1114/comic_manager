@@ -14,8 +14,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/logout', 'HomeController@index')->name('logout');
-
-
 Route::get('/shelf', 'ShelfController@index');
 
 Route::get('/shelf/editShelves', 'ShelfController@edit');
@@ -31,3 +29,6 @@ Route::get('/shelf/{id}/comics', 'ComicController@index')->name('comics');
 
 Route::get('/shelf/{id}/comics/add', 'ComicController@add');
 Route::post('/shelf/{id}/comics/add', 'ComicController@create');
+
+Route::get('/shelf/{id}/comics/delete/{comic_id}', 'ComicController@del');
+Route::post('/shelf/{id}/comics/delete', 'ComicController@remove');

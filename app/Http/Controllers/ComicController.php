@@ -54,4 +54,25 @@ class ComicController extends Controller
         DB::table('comics')->insert($data);
         return redirect()->route('comics', ['id' => $request->shelf_id]);
     }
+
+    public function del(int $id, int $comic_id)
+    {
+        $selected_comic = DB::table('comics')
+            ->where('shelf_id', $id)
+            ->where('id', $comic_id)
+            ->first();
+
+        $data = [
+            'comic' => $selected_comic,
+            'current_shelf_id' => $id,
+        ];
+        return view('comics.delete', $data);
+    }
+
+    public function remove(Request $request)
+    {
+        DB::table('comics')
+            ->where('id', $request->id)->delete();
+        return redirect()->route('comics', ['id' => $request->shelf_id]);
+    }
 }

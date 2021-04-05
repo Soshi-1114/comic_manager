@@ -13,7 +13,7 @@
                         <th>タイトル</th>
                         <th>購入状態</th>
                         <th>発売日</th>
-                        <th>操作</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -24,13 +24,19 @@
                             <span class="label">{{ $comic->purchase_status }}</span>
                             </td>
                             <td>{{ $comic->release_date }}</td>
-                            <td><a href="#">編集</a></td>
+                            <td>
+                                <form action="/shelf/{{ $current_shelf_id }}/comics/delete/{{ $comic->id }}" method="get" class="text-right">
+                                    @csrf
+                                    <input type="submit" class="btn btn-danger" value="削除">
+                                </form>
+                                {{-- <a href="/shelf/{{ $current_shelf_id }}/comics/delete/{{ $comic->id }}">削除</a> --}}
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
                     </table>
                     <div class="card-footer">>
-                        <a href="/shelf/{{$current_shelf_id}}/comics/add" class="btn btn-primary btn-block">
+                        <a href="/shelf/{{ $current_shelf_id }}/comics/add" class="btn btn-primary btn-block">
                             comicを追加する
                         </a>
                     </div>
