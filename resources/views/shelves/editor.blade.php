@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col col-sm-10">
+            <div class="col col-sm-5">
                 <nav class="card">
                     <div class="card-header text-center">本棚一覧</div>
                     <div class="card-body">
@@ -12,12 +12,19 @@
                             <tr>
                                 <th>タイトル</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
                                 @foreach($shelves as $shelf)
                                 <tr>
                                     <td>{{ $shelf->title }}</td>
+                                    <td>
+                                        <form action="/shelf/editShelves/edit/{{$shelf->id}}" method="get" class="text-right">
+                                            @csrf
+                                            <input type="submit" class="btn btn-primary" value="編集">
+                                        </form>
+                                    </td>
                                     <td>
                                         <form action="/shelf/editShelves/delete/{{$shelf->id}}" method="get" class="text-right">
                                             @csrf
