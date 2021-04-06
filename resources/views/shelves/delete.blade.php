@@ -13,7 +13,7 @@
                         <p class="card-text"></p>
                         <form action="/shelf/editShelves/delete" method="post">
                             @csrf
-                            <input type="hidden" name="id" value="{{ $shelf->id }}">
+                            <input type="hidden" name="shelf_id" value="{{ $shelf->id }}">
                             <input type="submit" class="btn btn-danger" value="削除">
                         </form>
                     </div>

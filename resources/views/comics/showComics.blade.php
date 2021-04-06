@@ -11,7 +11,7 @@
                     <thead>
                     <tr>
                         <th>タイトル</th>
-                        <th>購入状態</th>
+                        <th>所持</th>
                         <th>発売日</th>
                         <th></th>
                     </tr>
