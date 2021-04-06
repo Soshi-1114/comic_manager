@@ -5,23 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Shelf;
 use App\Comic;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
 class ComicController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+
+            // ココに書く
+            $this->user_id = \Auth::user()->id;
+            $this->shelves = DB::table('shelves')
+                ->where('user_id', $this->user_id)
+                ->get();
+
+            return $next($request);
+        });
+    }
+
     public function index(int $id)
     {
-        // すべてのフォルダを取得する
-        $shelves = Shelf::all();
-
-        // 選ばれたフォルダを取得する
         $current_shelf = Shelf::find($id);
-
-        // 選ばれたフォルダに紐づくタスクを取得する
         $comics = $current_shelf->comics()->get();
         $data = [
-            'shelves' => $shelves,
+            'shelves' => $this->shelves,
             'current_shelf_id' => $current_shelf->id,
             'comics' => $comics,
         ];
