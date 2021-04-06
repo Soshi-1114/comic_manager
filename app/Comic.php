@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Comic extends Model
 {
     const STATUS = [
-        false => ['label' => '未購入'],
-        true => ['label' => '購入済み'],
+        false => ['label' => '✖️'],
+        true => ['label' => '○'],
     ];
 
     /**
