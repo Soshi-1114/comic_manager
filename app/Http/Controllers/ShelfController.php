@@ -17,7 +17,7 @@ class ShelfController extends Controller
         return view('shelves.showShelves', $data);
     }
 
-    public function edit(Request $request)
+    public function editor(Request $request)
     {
         $shelves = Shelf::all();
         $selected_shelf = DB::table('shelves')
@@ -26,7 +26,14 @@ class ShelfController extends Controller
             'shelves' => $shelves,
             'form' => $selected_shelf,
         ];
-        return view('shelves.editShelves', $data);
+        return view('shelves.editor', $data);
+    }
+
+    public function edit(int $id)
+    {
+        $selected_shelf = DB::table('shelves')
+            ->where('id', $id)->first();
+        return view('shelves.edit', ['shelf' => $selected_shelf]);
     }
 
     public function update(Request $request)
@@ -37,7 +44,7 @@ class ShelfController extends Controller
         DB::table('shelves')
             ->where('id', $request->id)
             ->update($data);
-        return redirect('/');
+        return redirect('/shelf');
     }
 
     public function add()

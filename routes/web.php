@@ -16,14 +16,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/logout', 'HomeController@index')->name('logout');
 Route::get('/shelf', 'ShelfController@index');
 
-Route::get('/shelf/editShelves', 'ShelfController@edit');
-Route::post('/shelf/editShelves', 'ShelfController@update');
+Route::get('/shelf/editShelves', 'ShelfController@editor');
+// Route::post('/shelf/editShelves', 'ShelfController@update');
 
 Route::get('/shelf/editShelves/add', 'ShelfController@add');
 Route::post('/shelf/editShelves/add', 'ShelfController@create');
 
 Route::get('/shelf/editShelves/delete/{id}', 'ShelfController@del');
 Route::post('/shelf/editShelves/delete', 'ShelfController@remove');
+
+Route::get('/shelf/editShelves/edit/{id}', 'ShelfController@edit');
+Route::post('/shelf/editShelves/edit/', 'ShelfController@update');
+
 
 Route::get('/shelf/{id}/comics', 'ComicController@index')->name('comics');
 
