@@ -8,11 +8,16 @@
                     <div class="card-header text-center">本棚</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            @foreach($shelves as $shelf)
-                                <li class="list-group-item">
-                                    <a href="/shelf/{{ $shelf->id }}/comics">{{ $shelf->title }}</a>
-                                </li>
-                            @endforeach
+                            @if (count($shelves) >= 0)
+                                @foreach($shelves as $shelf)
+                                    <li class="list-group-item">
+                                        <a href="/shelf/{{ $shelf->id }}/comics">{{ $shelf->title }}</a>
+                                    </li>
+                                @endforeach
+                            @else
+                                <li>本棚を登録してください。</li>
+                            @endif
+
                         </ul>
                     </div>
                     <div class="card-footer">>
