@@ -11,7 +11,7 @@
 |
 */
 Auth::routes();
-
+Route::get('/', 'HomeController@home');
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/logout', 'HomeController@index')->name('logout');
 Route::get('/shelf', 'ShelfController@index');
