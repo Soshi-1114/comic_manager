@@ -7,6 +7,8 @@ use App\Shelf;
 use App\Comic;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use GuzzleHttp\Client;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 
 class ComicController extends Controller
@@ -84,4 +86,30 @@ class ComicController extends Controller
             ->where('id', $request->id)->delete();
         return redirect()->route('comics', ['id' => $request->shelf_id]);
     }
+
+    public function search(Request $request, int $id)
+    {
+        $items = null;
+        if (!empty($request->keyword)) {
+            $title = urlencode($request->keyword);
+            $url = 'https://www.googleapis.com/books/v1/volumes?q=' . $title . '&country=JP&tbm=bks';
+            $client = new Client();
+            $response = $client->request("GET", $url);
+            $body = $response->getBody();
+            $bodyArray = json_decode($body, true);
+            $items = $bodyArray['items'];
+        }
+
+        $data = [
+            'current_shelf_id' => $id,
+            'items' => $items,
+            'keyword' => $request->keyword,
+        ];
+        return view('comics.search', $data);
+    }
+
+    // public function searchPage(Request $request)
+    // {
+    //     return view('comics.search');
+    // }
 }
