@@ -26,6 +26,7 @@
                                     <label class="form-check-label" for="exampleCheck1">購入済み</label>
                                 </div>
                                 <button type="submit" class="btn btn-primary">追加</button>
+                                <a href="/shelf/{{ $current_shelf_id }}/comics/search" type="submit" class="btn btn-primary">keyword検索で追加</a>
                             </form>
                         </div>
                     </div>
