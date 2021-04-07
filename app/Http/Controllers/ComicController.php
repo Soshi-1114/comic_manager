@@ -108,8 +108,11 @@ class ComicController extends Controller
         return view('comics.search', $data);
     }
 
-    // public function searchPage(Request $request)
-    // {
-    //     return view('comics.search');
-    // }
+    public function readCode(Request $requset, int $id)
+    {
+        $data = [
+            'current_shelf_id' => $id
+        ];
+        return view('comics.readCode', $data);
+    }
 }
