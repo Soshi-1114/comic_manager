@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col col-sm-10">
             <nav class="card">
-                <div class="card-header text-center">comic一覧</div>
+                <div class="card-header text-center">title一覧</div>
                 <div class="card-body">
                     <table class="table">
                     <thead>

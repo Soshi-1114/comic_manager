@@ -39,3 +39,4 @@ Route::post('/shelf/{id}/comics/delete', 'ComicController@remove');
 
 Route::get('/shelf/{id}/comics/search/', 'ComicController@search');
 Route::get('/shelf/{id}/comics/readCode/', 'ComicController@readCode');
+// Route::post('/shelf/{id}/comics/readCode/', 'ComicController@readCode');
