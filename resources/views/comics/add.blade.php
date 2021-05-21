@@ -27,6 +27,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary">追加</button>
                                 <a href="/shelf/{{ $current_shelf_id }}/comics/search" type="submit" class="btn btn-primary">keyword検索で追加</a>
+                                <a href="/shelf/{{ $current_shelf_id }}/comics/readCode" type="submit" class="btn btn-primary">バーコードで追加</a>
                             </form>
                         </div>
                     </div>

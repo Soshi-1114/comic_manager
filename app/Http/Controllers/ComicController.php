@@ -105,11 +105,29 @@ class ComicController extends Controller
             'items' => $items,
             'keyword' => $request->keyword,
         ];
+        dump($items);
         return view('comics.search', $data);
     }
 
-    // public function searchPage(Request $request)
-    // {
-    //     return view('comics.search');
-    // }
+    public function readCode(Request $request, int $id)
+    {
+        $items = null;
+        if (!empty($request->isbn_code)) {
+            $isbn = urlencode($request->isbn_code);
+            $url = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' . $isbn;
+            $client = new Client();
+            $response = $client->request("GET", $url);
+            $body = $response->getBody();
+            $bodyArray = json_decode($body, true);
+            $items = $bodyArray['items'][0]['volumeInfo'];
+        }
+
+        $data = [
+            'current_shelf_id' => $id,
+            'items' => $items,
+            'isbn_code' => $request->isbn_code,
+        ];
+        dump($items);
+        return view('comics.readCode', $data);
+    }
 }

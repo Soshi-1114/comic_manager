@@ -38,4 +38,5 @@ Route::get('/shelf/{id}/comics/delete/{comic_id}', 'ComicController@del');
 Route::post('/shelf/{id}/comics/delete', 'ComicController@remove');
 
 Route::get('/shelf/{id}/comics/search/', 'ComicController@search');
-// Route::post('/shelf/{id}/comics/search', 'ComicController@searchPage');
+Route::get('/shelf/{id}/comics/readCode/', 'ComicController@readCode');
+// Route::post('/shelf/{id}/comics/readCode/', 'ComicController@readCode');
